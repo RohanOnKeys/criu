@@ -1,0 +1,12 @@
+{
+  "name": "criu-dev",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "runArgs": [
+    "--privileged",
+    "--init"
+  ],
+  "postCreateCommand": "make -j $(nproc) && sudo ./criu/criu check || true"
+}
